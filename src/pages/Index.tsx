@@ -1,13 +1,28 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { DashboardLayout } from "@/components/DashboardLayout";
+import { StatsCards } from "@/components/StatsCards";
+import { IncomeForecast } from "@/components/IncomeForecast";
+import { SavingsGoals } from "@/components/SavingsGoals";
+import { RecentActivity } from "@/components/RecentActivity";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <DashboardLayout>
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold text-foreground">Welcome back, Rahul!</h1>
+          <p className="text-muted-foreground mt-1">Here's your financial overview for today</p>
+        </div>
+        
+        <StatsCards />
+        
+        <div className="grid lg:grid-cols-2 gap-6">
+          <IncomeForecast />
+          <SavingsGoals />
+        </div>
+        
+        <RecentActivity />
       </div>
-    </div>
+    </DashboardLayout>
   );
 };
 
