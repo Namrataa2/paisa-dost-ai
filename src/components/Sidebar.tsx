@@ -1,5 +1,6 @@
 import { Home, Wallet, Bell, Receipt, Users, Calculator, Mic, BookOpen, HelpCircle, Settings, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navItems = [
   { icon: Home, label: "Dashboard", active: true },
@@ -14,6 +15,8 @@ const navItems = [
 ];
 
 export const Sidebar = () => {
+  const { signOut } = useAuth();
+  
   return (
     <aside className="w-64 border-r border-sidebar-border bg-sidebar flex flex-col">
       <div className="p-6">
@@ -52,7 +55,10 @@ export const Sidebar = () => {
           <Settings className="w-5 h-5" />
           <span>Settings</span>
         </button>
-        <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors">
+        <button 
+          onClick={signOut}
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors"
+        >
           <LogOut className="w-5 h-5" />
           <span>Logout</span>
         </button>
